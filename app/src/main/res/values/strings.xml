@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Bites</string>
+    <string name="login">Login</string>
+    <string name="signIn">Sign In</string>
+    <string name="password">Password</string>
+    <string name="repassword">Conform Password</string>
+    <string name="email">email</string>
+</resources>
