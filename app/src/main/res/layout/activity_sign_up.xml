@@ -4,15 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignIn">
+    tools:context=".SignUp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".Login">
+        tools:context=".Login"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-80dp">
 
         <Button
-            android:id="@+id/button6"
+            android:id="@+id/buttonSignIn"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:text="@string/signIn"
@@ -20,25 +22,12 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/motPass5"
-            app:layout_constraintVertical_bias="0.344" />
+            app:layout_constraintTop_toBottomOf="@+id/conformMotpass"
+            app:layout_constraintVertical_bias="0.125" />
 
         <EditText
-            android:id="@+id/motPass5"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:ems="10"
-            android:hint="@string/repassword"
-            android:inputType="textPersonName"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.491"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/motPass" />
-
-        <EditText
-            android:id="@+id/login5"
-            android:layout_width="350dp"
+            android:id="@+id/email"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:ems="10"
@@ -53,7 +42,7 @@
             android:id="@+id/imageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="120dp"
+            android:layout_marginTop="36dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
@@ -62,29 +51,38 @@
 
         <EditText
             android:id="@+id/login"
-            android:layout_width="350dp"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="52dp"
+            android:layout_marginTop="28dp"
             android:ems="10"
             android:hint="@string/login"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintHorizontal_bias="0.49"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
         <EditText
             android:id="@+id/motPass"
-            android:layout_width="350dp"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:ems="10"
-            android:hint="@string/password"
-            android:inputType="textPersonName"
+            android:inputType="textPassword"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.491"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/login5" />
+            app:layout_constraintTop_toBottomOf="@+id/email" />
+
+        <EditText
+            android:id="@+id/conformMotpass"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:ems="10"
+            android:inputType="textPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/motPass" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
