@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -34,17 +36,26 @@ public class SignUp extends AppCompatActivity {
             public void onClick(View view) {
 
 
-                EditText loginView      = findViewById(R.id.login);
-                EditText emailView      = findViewById(R.id.email);
-                EditText passwordView   = findViewById(R.id.motPass);
+                EditText loginView = findViewById(R.id.login);
+                EditText emailView = findViewById(R.id.email);
+                EditText passwordView = findViewById(R.id.motPass);
+                EditText passwordView2 = findViewById(R.id.conformMotpass);
 
-                String login        = loginView.getText().toString();
-                String email  = emailView.getText().toString();
+                String login = loginView.getText().toString();
+                String email = emailView.getText().toString();
                 String password = passwordView.getText().toString();
+                String confirmPassword = passwordView2.getText().toString();
 
-                //Toast.makeText(SignUp.this, email+" "+password, Toast.LENGTH_SHORT).show();
-                addUser(email,password);
-
+                if (password == confirmPassword) {
+                    //Toast.makeText(SignUp.this, email+" "+password, Toast.LENGTH_SHORT).show();
+                    addUser(email, password);
+                } else if (password.length() < 8) {
+                    Toast.makeText(SignUp.this, "MotPass too short", Toast.LENGTH_SHORT).show();
+                } else if (isValidEmail(email)) {
+                    Toast.makeText(SignUp.this, "MotPass too short", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(SignUp.this, "MotPass not the same", Toast.LENGTH_SHORT).show();
+                }
 
             }
         });
@@ -59,12 +70,12 @@ public class SignUp extends AppCompatActivity {
     }
 
     //method add user dans la base
-    public void addUser(String email,String password){
+    public void addUser(String email, String password) {
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        String TAG="addclient";
+                        String TAG = "addclient";
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "createUserWithEmail:success");
@@ -86,8 +97,11 @@ public class SignUp extends AppCompatActivity {
     }
 
     private void goToMain() {
-        Intent myIntent = new Intent(this, MainActivity.class);
+        Intent myIntent = new Intent(this, Main.class);
         startActivity(myIntent);
     }
 
+    public static boolean isValidEmail(CharSequence target) {
+        return (!TextUtils.isEmpty(target) && Patterns.EMAIL_ADDRESS.matcher(target).matches());
+    }
 }
