@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "340255314726",
+    "firebase_url": "https://go2health-5fc4a.firebaseio.com",
+    "project_id": "go2health-5fc4a",
+    "storage_bucket": "go2health-5fc4a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:340255314726:android:761ce6a369042dd0cf27e7",
+        "android_client_info": {
+          "package_name": "com.example.bites"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "340255314726-70a60najqn0avq7s0iijt0fompsu8kap.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bites",
+            "certificate_hash": "fa874b0622dd7217f2eb6b03fa1770fd5a454f83"
+          }
+        },
+        {
+          "client_id": "340255314726-5l2me1auliqk6tmhnbpsroaqpdcn31k1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCerEsyHKYXBADzNl_mkSbDPjVfn_vD4V4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "340255314726-art9ge181c6uokh1e3a537t7kccan7g9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
