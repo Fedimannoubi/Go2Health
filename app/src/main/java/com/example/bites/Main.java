@@ -90,7 +90,7 @@ private ImageView imageView;
         userEmail = headerLayout.findViewById(R.id.userEmail);
         userEmail.setText(currentUser.getEmail());
 
-
+        //use Picasso to get and set teh photo og the user
         imageView = headerLayout.findViewById(R.id.imageView);
         Picasso.get().load(currentUser.getPhotoUrl()).into(imageView);
 
