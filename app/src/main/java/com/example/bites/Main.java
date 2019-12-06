@@ -16,6 +16,8 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.squareup.picasso.Picasso;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -24,11 +26,19 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class Main extends AppCompatActivity {
 
 
+    private FirebaseAuth mAuth;
     private AppBarConfiguration mAppBarConfiguration;
+
+private TextView userName;
+private TextView userEmail;
+private ImageView imageView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +47,10 @@ public class Main extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         FloatingActionButton fab = findViewById(R.id.fab);
+
+        // Initialize Firebase Auth
+        mAuth = FirebaseAuth.getInstance();
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -58,7 +72,32 @@ public class Main extends AppCompatActivity {
         NavigationUI.setupWithNavController(navigationView, navController);
 
         //to cont.....
-        ImageView photo = findViewById(R.id.imageView);
+
+        navigationView = findViewById(R.id.nav_view);
+
+        //creation header
+        View headerLayout = navigationView.getHeaderView(0);
+
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+
+        userName = headerLayout.findViewById(R.id.userName);
+        userName.setText(currentUser.getDisplayName());
+
+
+        userEmail = headerLayout.findViewById(R.id.userEmail);
+        userEmail.setText(currentUser.getEmail());
+
+
+        imageView = headerLayout.findViewById(R.id.imageView);
+        Picasso.get().load(currentUser.getPhotoUrl()).into(imageView);
+
+        //Toast.makeText(this, ""+currentUser.getPhotoUrl(), Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+//        FirebaseUser user = mAuth.getCurrentUser();
 
 
     }
