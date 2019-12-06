@@ -75,10 +75,13 @@ private ImageView imageView;
 
         navigationView = findViewById(R.id.nav_view);
 
-        //creation header
+        //get the current user logged in
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+
+        //declaration of the header
         View headerLayout = navigationView.getHeaderView(0);
 
-        FirebaseUser currentUser = mAuth.getCurrentUser();
+
 
         userName = headerLayout.findViewById(R.id.userName);
         userName.setText(currentUser.getDisplayName());
@@ -91,7 +94,6 @@ private ImageView imageView;
         imageView = headerLayout.findViewById(R.id.imageView);
         Picasso.get().load(currentUser.getPhotoUrl()).into(imageView);
 
-        //Toast.makeText(this, ""+currentUser.getPhotoUrl(), Toast.LENGTH_SHORT).show();
     }
 
     @Override
