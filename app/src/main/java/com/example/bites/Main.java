@@ -51,7 +51,7 @@ private ImageView imageView;
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
 
-        //snake bar message icon acction
+        //snake bar message icon action
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

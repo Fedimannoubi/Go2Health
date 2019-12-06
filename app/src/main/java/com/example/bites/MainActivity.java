@@ -24,7 +24,6 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
 
-    GoogleApiClient mGoogleApiClient;
     GoogleSignInClient mGoogleSignInClient;
 
 
@@ -38,19 +37,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if (FirebaseAuth.getInstance().getCurrentUser() != null) {
-
                     signOutE();
                     finish();
-
-                } else {
-
-                    signOutG();
-                    //revokeAccess();
-                    finish();
-                }
-
-
             }
         });
 
@@ -62,10 +50,6 @@ public class MainActivity extends AppCompatActivity {
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .build();
-        mGoogleApiClient = new GoogleApiClient.Builder(this)
-                .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
-                .build();
-        mGoogleApiClient.connect();
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
         super.onStart();
@@ -78,20 +62,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void signOutG() {
-
-        Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(
-                new ResultCallback<Status>() {
-                    @Override
-                    public void onResult(Status status) {
-                        // ...
-                        Toast.makeText(getApplicationContext(), "Logged Out", Toast.LENGTH_SHORT).show();
-                        Intent login = new Intent(getApplicationContext(), Login.class);
-                        startActivity(login);
-                    }
-
-                });
-    }
 
     private void revokeAccess() {
         mGoogleSignInClient.revokeAccess()

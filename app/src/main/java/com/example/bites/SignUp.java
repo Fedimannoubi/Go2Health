@@ -21,6 +21,10 @@ import com.google.firebase.auth.FirebaseUser;
 public class SignUp extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
+    EditText loginView = findViewById(R.id.login);
+    EditText emailView = findViewById(R.id.email);
+    EditText passwordView = findViewById(R.id.motPass);
+    EditText passwordView2 = findViewById(R.id.conformMotpass);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,12 +38,6 @@ public class SignUp extends AppCompatActivity {
         findViewById(R.id.buttonSignIn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
-                EditText loginView = findViewById(R.id.login);
-                EditText emailView = findViewById(R.id.email);
-                EditText passwordView = findViewById(R.id.motPass);
-                EditText passwordView2 = findViewById(R.id.conformMotpass);
 
                 String login = loginView.getText().toString();
                 String email = emailView.getText().toString();
