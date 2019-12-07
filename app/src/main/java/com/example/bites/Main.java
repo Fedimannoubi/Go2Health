@@ -1,5 +1,6 @@
 package com.example.bites;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -9,6 +10,9 @@ import android.view.MenuItem;
 import android.view.View;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -117,6 +121,8 @@ private ImageView imageView;
         switch (item.getItemId()) {
             case R.id.action_disconnect:
                 disconect();
+            case R.id.action_settings:
+                settings();
 
         }
         return super.onOptionsItemSelected(item);
@@ -139,5 +145,10 @@ private ImageView imageView;
     public void disconect() {
         signOut();
         finish();
+    }
+
+    public void settings(){
+        Intent myIntent = new Intent(this, Settings.class);
+        startActivity(myIntent);
     }
 }
