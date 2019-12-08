@@ -1,28 +1,22 @@
 package com.example.bites;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 
-import android.content.Intent;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
-import com.example.bites.authentication.Login;
-import com.example.bites.authentication.SignUp;
-
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInClient;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.FirebaseAuth;
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 public class MainActivity extends AppCompatActivity {
 
-    GoogleSignInClient mGoogleSignInClient;
-
+    private NotificationManager mNotificationManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,54 +24,41 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
+        WaterTime();
+
         findViewById(R.id.buttonSignOut).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+               WaterNotification();
+                Toast.makeText(MainActivity.this, "test", Toast.LENGTH_SHORT).show();
 
-                    signOutE();
-                    finish();
             }
         });
+    }
+        private void WaterNotification() {
 
+            mNotificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+
+            //2.Build Notification with NotificationCompat.Builder
+            Notification notification = new NotificationCompat.Builder(this)
+                    .setContentTitle("Simple Notification")   //Set the title of Notification
+                    .setContentText("I am a boring notification.")    //Set the text for notification
+                    .setSmallIcon(android.R.drawable.ic_menu_view)   //Set the icon
+                    .build();
+
+            //Send the notification.
+            mNotificationManager.notify(1, notification);
     }
 
-    @Override
-    protected void onStart() {
-
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestEmail()
-                .build();
-
-        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-        super.onStart();
-
+    public void WaterTime(){
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+               // Toast.makeText(MainActivity.this, "test5", Toast.LENGTH_SHORT).show();
+                WaterNotification();
+            }
+        }, 1000, 3000);
     }
 
-    private void signOutE() {
-
-        FirebaseAuth.getInstance().signOut();
-
-    }
-
-
-    private void revokeAccess() {
-        mGoogleSignInClient.revokeAccess()
-                .addOnCompleteListener(this, new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        // ...
-                    }
-                });
-    }
-
-
-    private void goToSignIn() {
-        Intent myIntent = new Intent(this, Login.class);
-        startActivity(myIntent);
-    }
-
-    private void goToSignUp() {
-        Intent myIntent = new Intent(this, SignUp.class);
-        startActivity(myIntent);
-    }
 }

@@ -1,5 +1,7 @@
 package com.example.bites;
 
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -10,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -33,11 +36,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class Main extends AppCompatActivity {
 
 
     private FirebaseAuth mAuth;
     private AppBarConfiguration mAppBarConfiguration;
+    NotificationManager mNotificationManager;
 
 private TextView userName;
 private TextView userEmail;
@@ -150,5 +157,32 @@ private ImageView imageView;
     public void settings(){
         Intent myIntent = new Intent(this, Settings.class);
         startActivity(myIntent);
+    }
+
+    public void WaterTime(){
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                // Toast.makeText(MainActivity.this, "test5", Toast.LENGTH_SHORT).show();
+                WaterNotification();
+            }
+            //7200000 = 2 hours
+        }, 1000, 7200000);
+    }
+
+    private void WaterNotification() {
+
+        mNotificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+
+        //2.Build Notification with NotificationCompat.Builder
+        Notification notification = new NotificationCompat.Builder(this)
+                .setContentTitle("Water Reminder")   //Set the title of Notification
+                .setContentText("Time to drink water!")    //Set the text for notification
+                .setSmallIcon(android.R.drawable.ic_menu_view)   //Set the icon
+                .build();
+
+        //Send the notification.
+        mNotificationManager.notify(1, notification);
     }
 }

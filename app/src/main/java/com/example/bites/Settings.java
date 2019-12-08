@@ -15,7 +15,13 @@ import androidx.core.app.NotificationManagerCompat;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceManager;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class Settings extends AppCompatActivity {
+
+
+    Timer timer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +75,8 @@ public class Settings extends AppCompatActivity {
         // notificationId is a unique int for each notification that you must define
         notificationManager.notify(1, builder.build());
     }
+
+
 
 
 }
