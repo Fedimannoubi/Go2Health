@@ -1,19 +1,23 @@
-<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <PreferenceCategory app:title="@string/messages_header">
 
         <SwitchPreferenceCompat
-            app:key="sync"
-            app:title="@string/notification"
+            android:id="@+id/notificationSwitch"
+            app:key="notification"
             app:summaryOff="@string/notification_off"
-            app:summaryOn="@string/notification_on"/>
+            app:summaryOn="@string/notification_on"
+            app:title="@string/notification" />
 
         <SwitchPreferenceCompat
-            app:key="sync"
+            android:id="@+id/VibrateSwitch"
+            app:key="vibrate"
             app:title="@string/vibrate" />
 
         <SwitchPreferenceCompat
-            app:key="sync"
+            android:id="@+id/ledLightSwitch"
+            app:key="ledLight"
             app:title="@string/ledLight" />
 
 
