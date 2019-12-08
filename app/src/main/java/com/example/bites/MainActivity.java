@@ -43,13 +43,14 @@ public class MainActivity extends AppCompatActivity {
             Notification notification = new NotificationCompat.Builder(this)
                     .setContentTitle("Simple Notification")   //Set the title of Notification
                     .setContentText("I am a boring notification.")    //Set the text for notification
-                    .setSmallIcon(android.R.drawable.ic_menu_view)   //Set the icon
+                    .setSmallIcon(R.drawable.ic_drink)   //Set the icon
                     .build();
 
             //Send the notification.
             mNotificationManager.notify(1, notification);
     }
 
+    //timer for the
     public void WaterTime(){
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {

@@ -106,6 +106,9 @@ private ImageView imageView;
         imageView = headerLayout.findViewById(R.id.imageView);
         Picasso.get().load(currentUser.getPhotoUrl()).into(imageView);
 
+        //notifications timer
+        WaterTime();
+
     }
 
     @Override
@@ -179,7 +182,7 @@ private ImageView imageView;
         Notification notification = new NotificationCompat.Builder(this)
                 .setContentTitle("Water Reminder")   //Set the title of Notification
                 .setContentText("Time to drink water!")    //Set the text for notification
-                .setSmallIcon(android.R.drawable.ic_menu_view)   //Set the icon
+                .setSmallIcon(R.drawable.ic_drink)   //Set the icon
                 .build();
 
         //Send the notification.
