@@ -1,4 +1,4 @@
-package com.example.bites.ui.send;
+package com.example.bites.ui.support;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

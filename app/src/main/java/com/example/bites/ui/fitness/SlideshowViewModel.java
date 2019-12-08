@@ -1,4 +1,4 @@
-package com.example.bites.ui.slideshow;
+package com.example.bites.ui.fitness;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

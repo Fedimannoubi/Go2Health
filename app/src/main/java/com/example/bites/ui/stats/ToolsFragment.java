@@ -1,4 +1,4 @@
-package com.example.bites.ui.tools;
+package com.example.bites.ui.stats;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
