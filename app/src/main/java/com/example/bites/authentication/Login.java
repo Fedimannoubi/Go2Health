@@ -56,9 +56,12 @@ public class Login extends AppCompatActivity {
 
                 String login = loginView.getText().toString();
                 String password = motPassView.getText().toString();
-
-                login(login, password);
-            }
+                if (login != null && password != null){
+                    login(login, password);
+                }else {
+                    Toast.makeText(Login.this, "Enter a valid login", Toast.LENGTH_SHORT).show();
+                }
+                }
         });
 
         findViewById(R.id.buttonSignUp).setOnClickListener(new View.OnClickListener() {

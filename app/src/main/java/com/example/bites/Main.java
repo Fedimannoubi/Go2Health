@@ -130,7 +130,7 @@ private ImageView imageView;
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_disconnect:
-                disconnect();
+                disconnect();break;
             case R.id.action_settings:
                 settings();
 
