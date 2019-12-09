@@ -29,11 +29,12 @@
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingTop="20dp"
                 android:text="TextView" />
 
             <ImageView
                 android:id="@+id/imagetest"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:srcCompat="@tools:sample/avatars[0]" />
 
@@ -45,7 +46,7 @@
 
             <ImageView
                 android:id="@+id/imagetest2"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:srcCompat="@tools:sample/avatars[1]" />
 
@@ -54,6 +55,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="TextView" />
+
+            <ImageView
+                android:id="@+id/imagetest3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:srcCompat="@tools:sample/avatars[3]" />
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

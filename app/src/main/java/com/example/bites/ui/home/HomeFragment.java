@@ -30,6 +30,7 @@ public class HomeFragment extends Fragment {
     private FirebaseStorage storage;
     private ImageView image1;
     private ImageView image2;
+    private ImageView image3;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -42,18 +43,19 @@ public class HomeFragment extends Fragment {
         homeViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
-                textView.setText(s);
+                //set up the home page titile
+                textView.setText("New stuff WAITING YOU!!!");
             }
         });
 
+        //set up ads at the firs page
         //fill the home
         image1 = root.findViewById(R.id.imagetest);
         image2 = root.findViewById(R.id.imagetest2);
-
-        //image3 = findViewById(R.id.imagetest3);
+        image3 = root.findViewById(R.id.imagetest3);
         //Toast.makeText(this, ""+image1, Toast.LENGTH_SHORT).show();
         ImageLoader(image1,"images/ads/add1.jpg");
-        //ImageLoader(image2,"images/ads/add2.jpg");
+        ImageLoader(image2,"images/ads/add2.jpg");
 
 
 
