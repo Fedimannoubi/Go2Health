@@ -64,19 +64,19 @@ public class Main extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        FloatingActionButton fab = findViewById(R.id.fab);
+        //FloatingActionButton fab = findViewById(R.id.fab);
 
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
 
         //snake bar message icon action
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//            }
+//        });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
