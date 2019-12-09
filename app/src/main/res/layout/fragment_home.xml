@@ -30,7 +30,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="20dp"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textSize="24sp" />
 
             <ImageView
                 android:id="@+id/imagetest"
@@ -42,7 +43,8 @@
                 android:id="@+id/add2Text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textSize="24sp" />
 
             <ImageView
                 android:id="@+id/imagetest2"
@@ -54,7 +56,8 @@
                 android:id="@+id/add3Text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textSize="24sp" />
 
             <ImageView
                 android:id="@+id/imagetest3"
