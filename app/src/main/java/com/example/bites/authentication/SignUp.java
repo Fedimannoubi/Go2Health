@@ -51,12 +51,12 @@ public class SignUp extends AppCompatActivity {
                 String password = passwordView.getText().toString();
                 String confirmPassword = passwordView2.getText().toString();
 
-                if (password != confirmPassword) {
-                    Toast.makeText(SignUp.this, "Password does not match", Toast.LENGTH_SHORT).show();
+                if (!isValidEmail(email)) {
+                    Toast.makeText(SignUp.this, "Email not valid", Toast.LENGTH_SHORT).show();
                 } else if (password.length() < 8) {
                     Toast.makeText(SignUp.this, "MotPass too short", Toast.LENGTH_SHORT).show();
-                } else if (!isValidEmail(email)) {
-                    Toast.makeText(SignUp.this, "Email not valid", Toast.LENGTH_SHORT).show();
+                } else if (password != confirmPassword) {
+                    Toast.makeText(SignUp.this, "Password does not match", Toast.LENGTH_SHORT).show();
                 } else {
                     addUser(email, password);
                 }
