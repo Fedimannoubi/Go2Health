@@ -1,14 +1,14 @@
 package com.example.bites.authentication;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.bites.Main;
 import com.example.bites.R;
@@ -56,7 +56,10 @@ public class Login extends AppCompatActivity {
 
                 String login = loginView.getText().toString();
                 String password = motPassView.getText().toString();
-                if (login != null && password != null){
+                //
+                if (login.length() > 6 && password.length() > 8) {
+
+                    //Toast.makeText(Login.this, login+" "+password, Toast.LENGTH_LONG).show();
                     login(login, password);
                 }else {
                     Toast.makeText(Login.this, "Enter a valid login", Toast.LENGTH_SHORT).show();

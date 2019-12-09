@@ -1,8 +1,5 @@
 package com.example.bites.authentication;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -11,6 +8,9 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.bites.Main;
 import com.example.bites.R;
@@ -51,15 +51,14 @@ public class SignUp extends AppCompatActivity {
                 String password = passwordView.getText().toString();
                 String confirmPassword = passwordView2.getText().toString();
 
-                if (password == confirmPassword) {
-                    //Toast.makeText(SignUp.this, email+" "+password, Toast.LENGTH_SHORT).show();
-                    addUser(email, password);
+                if (password != confirmPassword) {
+                    Toast.makeText(SignUp.this, "Password does not match", Toast.LENGTH_SHORT).show();
                 } else if (password.length() < 8) {
                     Toast.makeText(SignUp.this, "MotPass too short", Toast.LENGTH_SHORT).show();
-                } else if (isValidEmail(email)) {
-                    Toast.makeText(SignUp.this, "MotPass too short", Toast.LENGTH_SHORT).show();
+                } else if (!isValidEmail(email)) {
+                    Toast.makeText(SignUp.this, "Email not valid", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(SignUp.this, "MotPass not the same", Toast.LENGTH_SHORT).show();
+                    addUser(email, password);
                 }
 
             }
