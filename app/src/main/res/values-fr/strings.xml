@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">Go2Health</string>
+    <string name="login">connecter</string>
+    <string name="signIn">Sign In</string>
+    <string name="signUp">creer une compt</string>
+    <string name="password">mot de passe </string>
+    <string name="repassword">Confirmer votre mot de passe</string>
+    <string name="email">Email</string>
+    <string name="SignOut">deconnecter</string>
+    <string name="title_activity_main">main</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">user name place holder</string>
+    <string name="nav_header_subtitle">Email placeholder</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="menu_home">acceuil</string>
+    <string name="menu_health">santé</string>
+    <string name="menu_fitness">Fitness</string>
+    <string name="menu_stats">Stats</string>
+    <string name="menu_share">partager</string>
+    <string name="menu_support">Support</string>
+    <string name="action_disconnect">Déconnecter</string>
+    <string name="notification">Notification</string>
+    <string name="vibrate">Vibrer</string>
+    <string name="ledLight">Torsh</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello Settings fragment</string>
+    <string name="title_activity_settings">Paramétres</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="notification_off">Ne me déranger pas </string>
+    <string name="notification_on">Recevoir mes  Notifications</string>
+</resources>
