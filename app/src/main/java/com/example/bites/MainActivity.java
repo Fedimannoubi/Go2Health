@@ -1,13 +1,12 @@
 package com.example.bites;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -18,6 +17,12 @@ import com.squareup.picasso.Picasso;
 
 
 public class MainActivity extends AppCompatActivity {
+
+    //----------------------------------------------------------------------------------------------
+    //----------------------------------------------------------------------------------------------
+    //this page is just for TESTING
+    //----------------------------------------------------------------------------------------------
+    //----------------------------------------------------------------------------------------------
 
     FirebaseStorage storage;
     private ImageView image1;
