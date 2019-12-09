@@ -31,6 +31,9 @@ public class HomeFragment extends Fragment {
     private ImageView image1;
     private ImageView image2;
     private ImageView image3;
+    private TextView text1;
+    private TextView text2;
+    private TextView text3;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -50,12 +53,25 @@ public class HomeFragment extends Fragment {
 
         //set up ads at the firs page
         //fill the home
+        text1 = root.findViewById(R.id.add1Text);
         image1 = root.findViewById(R.id.imagetest);
+
+        text2 = root.findViewById(R.id.add2Text);
         image2 = root.findViewById(R.id.imagetest2);
+
+        text3 = root.findViewById(R.id.add3Text);
         image3 = root.findViewById(R.id.imagetest3);
+
         //Toast.makeText(this, ""+image1, Toast.LENGTH_SHORT).show();
+
+        text1.setText("The New Fight! Lets GO!");
         ImageLoader(image1,"images/ads/add1.jpg");
+
+        text2.setText("Join NOW! 50% OFF FOR ANNUAL MEMBERSHIP");
         ImageLoader(image2,"images/ads/add2.jpg");
+
+        text3.setText("Get in SHAPE TODAY!");
+        ImageLoader(image3,"images/ads/add3.jpg");
 
 
 
