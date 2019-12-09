@@ -1,65 +1,76 @@
 package com.example.bites;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.NotificationCompat;
 
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.content.Context;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
-import java.util.Timer;
-import java.util.TimerTask;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageMetadata;
+import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
 
 
 public class MainActivity extends AppCompatActivity {
 
-    private NotificationManager mNotificationManager;
+    FirebaseStorage storage;
+    private ImageView image1;
+    private ImageView image2;
+    private ImageView image3;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        image1 = findViewById(R.id.imagetest);
+        image2 = findViewById(R.id.imagetest2);
+        //image3 = findViewById(R.id.imagetest3);
 
+        ImageLoader(image1,"images/ads/add1.jpg");
+        ImageLoader(image2,"images/ads/add2.jpg");
+       // ImageLoader(image3,"images/ads/add2.jpg");
 
-        WaterTime();
+    }
 
-        findViewById(R.id.buttonSignOut).setOnClickListener(new View.OnClickListener() {
+    private void ImageLoader(final ImageView image, String url){
+
+        storage = FirebaseStorage.getInstance();
+        // Create a storage reference from our app
+        StorageReference storageRef = storage.getReference();
+
+        // Get reference to the file
+        StorageReference forestRef = storageRef.child(url);
+
+        forestRef.getMetadata().addOnSuccessListener(new OnSuccessListener<StorageMetadata>() {
             @Override
-            public void onClick(View v) {
-               WaterNotification();
-                Toast.makeText(MainActivity.this, "test", Toast.LENGTH_SHORT).show();
+            public void onSuccess(StorageMetadata storageMetadata) {
+                // Metadata now contains the metadata for 'images/forest.jpg'
 
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                // Uh-oh, an error occurred!
+                Toast.makeText(MainActivity.this, "no such file found", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        forestRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+
+                Picasso.get().load(uri).into(image);
             }
         });
     }
-        private void WaterNotification() {
 
-            mNotificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-
-            //2.Build Notification with NotificationCompat.Builder
-            Notification notification = new NotificationCompat.Builder(this)
-                    .setContentTitle("Simple Notification")   //Set the title of Notification
-                    .setContentText("I am a boring notification.")    //Set the text for notification
-                    .setSmallIcon(R.drawable.ic_drink)   //Set the icon
-                    .build();
-
-            //Send the notification.
-            mNotificationManager.notify(1, notification);
-    }
-
-    //timer for the
-    public void WaterTime(){
-        Timer timer = new Timer();
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-               // Toast.makeText(MainActivity.this, "test5", Toast.LENGTH_SHORT).show();
-                WaterNotification();
-            }
-        }, 1000, 3000);
-    }
 
 }
+

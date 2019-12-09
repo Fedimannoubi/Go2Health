@@ -3,8 +3,11 @@ package com.example.bites;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -24,6 +27,9 @@ import androidx.navigation.ui.NavigationUI;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageMetadata;
+import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -46,9 +52,10 @@ public class Main extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
     NotificationManager mNotificationManager;
 
-private TextView userName;
-private TextView userEmail;
-private ImageView imageView;
+    private TextView userName;
+    private TextView userEmail;
+    private ImageView imageView;
+
 
 
     @Override
@@ -108,6 +115,10 @@ private ImageView imageView;
 
         //notifications timer
         WaterTime();
+
+
+
+
 
     }
 
@@ -188,4 +199,7 @@ private ImageView imageView;
         //Send the notification.
         mNotificationManager.notify(1, notification);
     }
+
+
+
 }
