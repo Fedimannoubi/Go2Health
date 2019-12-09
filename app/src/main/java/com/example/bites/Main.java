@@ -99,10 +99,6 @@ public class Main extends AppCompatActivity {
         //notifications timer
         WaterTime();
 
-
-
-
-
     }
 
     @Override
@@ -156,6 +152,7 @@ public class Main extends AppCompatActivity {
         startActivity(myIntent);
     }
 
+    //timer to call the method WaterNotification every 2 hours
     public void WaterTime(){
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {
@@ -168,6 +165,7 @@ public class Main extends AppCompatActivity {
         }, 1000, 7200000);
     }
 
+    //method that send a notification to user
     private void WaterNotification() {
 
         mNotificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);

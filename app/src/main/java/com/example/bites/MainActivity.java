@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //method to set an imageView withe image uri from the data store
     private void ImageLoader(final ImageView image, String url){
 
         storage = FirebaseStorage.getInstance();
@@ -71,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSuccess(Uri uri) {
 
+                //SET the imageView with the uri
                 Picasso.get().load(uri).into(image);
             }
         });
